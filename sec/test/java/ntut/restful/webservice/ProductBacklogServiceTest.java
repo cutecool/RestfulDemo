@@ -29,11 +29,13 @@ public class ProductBacklogServiceTest {
 		int storycount = 3;
 		CreateData CD = new CreateData(storycount);
 		CD.exe();
+		System.out.println("setUp");
 	}
 
 	@AfterClass
 	public static void tearDown() {
 		DBserver.dropTable();
+		System.out.println("tearDown");
 	}
 
 	@Rule
@@ -167,14 +169,7 @@ public class ProductBacklogServiceTest {
 	@HttpTest(
 	        method = Method.DELETE,
 	        path = "/RestfulDemo/story",
-	        content = "{\"id\":\"1\","
-	        		+ "\"name\":\"TEST_STORY_NAME_1\","
-	        		+ "\"notes\":\"TEST_STORY_NOTES_1\","
-	        		+ "\"howToDemo\":\"TEST_STORY_HOWTODEMO_1\","
-	        		+ "\"importance\":\"8\","
-	        		+ "\"value\":\"8\","
-	        		+ "\"estimate\":\"8\","
-	        		+ "\"tag\":\"TEST_STORY_TAG_1\"}",
+	        content = "{\"id\":\"1\"}",
 	        order = 4
     )
     public void testdeleteStory() {
